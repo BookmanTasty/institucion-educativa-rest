@@ -15,7 +15,6 @@ public class AsignacionMateria extends PanacheEntityBase {
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID",
             strategy = "org.hibernate.id.UUIDGenerator")
-
     @Column(name = "id", nullable = false)
     private UUID id;
     @ManyToOne(cascade = CascadeType.ALL)

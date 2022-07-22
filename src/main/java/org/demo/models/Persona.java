@@ -1,5 +1,6 @@
 package org.demo.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -23,8 +24,10 @@ public class Persona extends PanacheEntityBase {
     private String apellidoPaterno;
     private String apellidoMaterno;
     @OneToMany(mappedBy = "persona", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @JsonBackReference
     private List<Maestro> maestros;
     @OneToMany(mappedBy = "persona", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @JsonBackReference
     private List<Alumno> alumnos ;
 
     public UUID getId() {

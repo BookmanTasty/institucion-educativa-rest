@@ -9,7 +9,7 @@ import java.util.UUID;
 
 public interface InstitucionEducativa {
     List<Maestro> findMaestrosByMateriaId(UUID materiaId);
-    List<Alumno> findAlumnosByPromeedio(Long promedio);
+    List<Alumno> findAlumnosByPromedio(Long promedio);
     List<Alumno> findAlumnosByMaestroId(UUID maestroId);
     List<Materia> findMateriasBySalonId(UUID salonId);
 
