@@ -18,7 +18,7 @@ public class Materia extends PanacheEntityBase {
     @Column(name = "id", nullable = false)
     private UUID id;
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "salon_id", nullable = false)
+    @JoinColumn(name = "salon", nullable = false)
     private Salon salon;
     @Column(nullable = false)
     private String nombre;

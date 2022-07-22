@@ -17,7 +17,6 @@ public class Persona extends PanacheEntityBase {
             strategy = "org.hibernate.id.UUIDGenerator")
     @Column(name = "id", nullable = false)
     private UUID id;
-    // Atributos de la clase Persona id, nombre, apellido, fecha de nacimiento, edad, direccion, telefono, email, estado,
     @Column(nullable = false)
     private String nombre;
     @Column(nullable = false)

@@ -1,16 +1,15 @@
 package org.demo.services;
 
-import org.demo.models.Alumno;
-import org.demo.models.Maestro;
-import org.demo.models.Materia;
+import org.demo.models.*;
 
 import java.util.List;
 import java.util.UUID;
 
 public interface InstitucionEducativa {
     List<Maestro> findMaestrosByMateriaId(UUID materiaId);
-    List<Alumno> findAlumnosByPromedio(Long promedio);
+    List<Promedio> findAlumnosByPromedio(Long promedio);
     List<Alumno> findAlumnosByMaestroId(UUID maestroId);
     List<Materia> findMateriasBySalonId(UUID salonId);
+    Calificacion createCalificacion(Alumno alumno, Materia materia, Long porcentaje);
 
 }

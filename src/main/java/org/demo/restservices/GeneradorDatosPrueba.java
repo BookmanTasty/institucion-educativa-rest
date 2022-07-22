@@ -99,7 +99,7 @@ public class GeneradorDatosPrueba {
         // asignamos calificacion a las materias asignadas
         for (AsignacionMateria asignacionMateria : asignacionMateriasAlumnos) {
             Calificacion calificacion = new Calificacion();
-            calificacion.setPorcentaje(1L + (long) (Math.random() * (100L - 1L)));;
+            calificacion.setPorcentaje(70L + (long) (Math.random() * (100L - 70L)));;
             calificacion.setAlumno(asignacionMateria.getAlumno());
             calificacion.setMateria(asignacionMateria.getMateria());
             calificacion.persist();

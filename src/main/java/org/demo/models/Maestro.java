@@ -11,7 +11,6 @@ import java.util.UUID;
 @Entity
 @Table(name = "maestro_cesar_leyva")
 public class Maestro extends PanacheEntityBase {
-    //atributos de la clase maestro persona_id, especialidad, estado, fecha de ingreso, fecha de egreso
 
     @Id
     @GeneratedValue(generator = "UUID")
