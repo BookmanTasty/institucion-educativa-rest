@@ -1,60 +1,69 @@
 # institucion-educativa-rest Project
 
-This project uses Quarkus, the Supersonic Subatomic Java Framework.
+Esta es una prueba de proyecto para un backend con quarkus
 
-If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
+Para ejecutar el proyecto en modo dev, ejecute el siguiente comando:
 
-## Running the application in dev mode
-
-You can run your application in dev mode that enables live coding using:
-```shell script
+```
+shell script
 ./mvnw compile quarkus:dev
 ```
 
-> **_NOTE:_**  Quarkus now ships with a Dev UI, which is available in dev mode only at http://localhost:8080/q/dev/.
 
-## Packaging and running the application
+## Enpoints
 
-The application can be packaged using:
+El servicio incluye 5 endpoints y un endpoint que se encarga de generar datos de prueba:
+
+### findMaestrosByMateriaId
 ```shell script
-./mvnw package
+wget --no-check-certificate --quiet \
+  --method GET \
+  --timeout=0 \
+  --header '' \
+   'http://localhost:8080/institucion/maestro/materia/56539a2d-a977-42f6-b5ba-d63b6afe56bb'
 ```
-It produces the `quarkus-run.jar` file in the `target/quarkus-app/` directory.
-Be aware that it’s not an _über-jar_ as the dependencies are copied into the `target/quarkus-app/lib/` directory.
-
-The application is now runnable using `java -jar target/quarkus-app/quarkus-run.jar`.
-
-If you want to build an _über-jar_, execute the following command:
+### findAlumnosByPromedio
 ```shell script
-./mvnw package -Dquarkus.package.type=uber-jar
+wget --no-check-certificate --quiet \
+  --method GET \
+  --timeout=0 \
+  --header '' \
+   'http://localhost:8080/institucion/alumnos/promedio/85'
 ```
-
-The application, packaged as an _über-jar_, is now runnable using `java -jar target/*-runner.jar`.
-
-## Creating a native executable
-
-You can create a native executable using: 
+### findAlumnosByMaestroId
 ```shell script
-./mvnw package -Pnative
+wget --no-check-certificate --quiet \
+  --method GET \
+  --timeout=0 \
+  --header '' \
+   'http://localhost:8080/institucion/alumnos/maestro/6f6f267a-434d-48e4-9bf1-fa796b5c8c2b'
 ```
-
-Or, if you don't have GraalVM installed, you can run the native executable build in a container using: 
+### findMateriasBySalonId
 ```shell script
-./mvnw package -Pnative -Dquarkus.native.container-build=true
+wget --no-check-certificate --quiet \
+  --method GET \
+  --timeout=0 \
+  --header '' \
+   'http://localhost:8080/institucion/materias/salon/78a7d33f-9655-4504-8b9d-02d00b1b347a'
+```
+### createCalificacion
+```shell script
+wget --no-check-certificate --quiet \
+  --method POST \
+  --timeout=0 \
+  --header 'Content-Type: application/json' \
+  --body-data '{"alumnoId":"89ec6230-dadb-409f-83b4-6caf5735f08e",
+"materiaId":"8caaedbd-cd2c-4282-8ef3-46a49186b798",
+"porcentaje":95}' \
+   'http://localhost:8080/institucion/materias/calificacion'
+```
+### Crear datos de prueba
+
+```shell script
+wget --no-check-certificate --quiet \
+  --method GET \
+  --timeout=0 \
+  --header '' \
+   'http://localhost:8080/generardatos'
 ```
 
-You can then execute your native executable with: `./target/institucion-educativa-rest-1.0.0-SNAPSHOT-runner`
-
-If you want to learn more about building native executables, please consult https://quarkus.io/guides/maven-tooling.
-
-## Related Guides
-
-- Hibernate ORM with Panache ([guide](https://quarkus.io/guides/hibernate-orm-panache)): Simplify your persistence code for Hibernate ORM via the active record or the repository pattern
-
-## Provided Code
-
-### RESTEasy Reactive
-
-Easily start your Reactive RESTful Web Services
-
-[Related guide section...](https://quarkus.io/guides/getting-started-reactive#reactive-jax-rs-resources)
